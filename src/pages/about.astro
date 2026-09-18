@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const base = import.meta.env.BASE_URL;
+
 const stack = [
   { letter: 'A', name: 'Catia V5',       role: 'CAD modeling & product design'       },
   { letter: 'B', name: 'Vericut',        role: 'CNC simulation & toolpath verification' },
@@ -155,8 +157,8 @@ const steps = [
         knowing whether we're the right fit to solve it.
       </p>
       <div class="cta-actions">
-        <a href="/contact/" class="btn-primary">Start a Project</a>
-        <a href="/services/" class="btn-ghost">View Services</a>
+        <a href={`${base}contact/`} class="btn-primary">Start a Project</a>
+        <a href={`${base}services/`} class="btn-ghost">View Services</a>
       </div>
     </div>
   </div>

@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const base = import.meta.env.BASE_URL;
+
 const pillars = [
   {
     num: '01',
@@ -196,8 +198,8 @@ const licenses = [
         move forward, you'll know exactly what the next step looks like.
       </p>
       <div class="cta-actions">
-        <a href="/contact/" class="btn-primary">Start a Project</a>
-        <a href="/about/" class="btn-ghost">About Us</a>
+        <a href={`${base}contact/`} class="btn-primary">Start a Project</a>
+        <a href={`${base}about/`} class="btn-ghost">About Us</a>
       </div>
     </div>
   </div>

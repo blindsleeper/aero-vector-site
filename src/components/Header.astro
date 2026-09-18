@@ -1,17 +1,18 @@
 ---
 // Aero Vector Engineering site header — navigation, hamburger menu, scroll behaviour
+const base = import.meta.env.BASE_URL;
 ---
 
 <nav id="av-nav-menu" role="navigation">
-  <a href="/" class="nav-logo">
-    <img class="nav-mark" src="/aerovector-mark.png" alt="" width="984" height="499" />
+  <a href={base} class="nav-logo">
+    <img class="nav-mark" src={`${base}aerovector-mark.png`} alt="" width="984" height="499" />
     <span class="nl-aero">AERO</span><span class="nl-vector">VECTOR</span>
   </a>
   <ul class="nav-links">
-    <li><a href="/services/">Services</a></li>
-    <li><a href="/about/">About</a></li>
-    <li><a href="/contact/">Contact</a></li>
-    <li><a href="/contact/" class="nav-cta">Start a Project</a></li>
+    <li><a href={`${base}services/`}>Services</a></li>
+    <li><a href={`${base}about/`}>About</a></li>
+    <li><a href={`${base}contact/`}>Contact</a></li>
+    <li><a href={`${base}contact/`} class="nav-cta">Start a Project</a></li>
   </ul>
   <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false" id="hamburger">
     <span></span><span></span><span></span>
@@ -19,10 +20,10 @@
   <!-- Mobile drawer -->
   <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
     <ul class="nav-drawer-links">
-      <li><a href="/services/">Services</a></li>
-      <li><a href="/about/">About</a></li>
-      <li><a href="/contact/">Contact</a></li>
-      <li><a href="/contact/" class="nav-drawer-cta">Start a Project</a></li>
+      <li><a href={`${base}services/`}>Services</a></li>
+      <li><a href={`${base}about/`}>About</a></li>
+      <li><a href={`${base}contact/`}>Contact</a></li>
+      <li><a href={`${base}contact/`} class="nav-drawer-cta">Start a Project</a></li>
     </ul>
   </div>
 </nav>

@@ -7,7 +7,15 @@ export interface Props {
 }
 const { title, description = 'Aero Vector Engineering — aerospace engineering design, consulting, and optimization.' } = Astro.props;
 
-const canonicalPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const base = import.meta.env.BASE_URL;
+// Strip the interim GitHub Pages base path so the canonical tag always points at the
+// eventual root-domain URL (aerovectorengineering.com) rather than a subpath that will
+// stop existing once the custom domain goes live and `base` is removed.
+const rawPathname = Astro.url.pathname;
+const pathnameWithoutBase = base !== '/' && rawPathname.startsWith(base)
+  ? `/${rawPathname.slice(base.length)}`
+  : rawPathname;
+const canonicalPath = pathnameWithoutBase.endsWith('/') ? pathnameWithoutBase : `${pathnameWithoutBase}/`;
 const canonicalURL = new URL(canonicalPath, Astro.site);
 ---
 <!DOCTYPE html>
@@ -21,10 +29,10 @@ const canonicalURL = new URL(canonicalPath, Astro.site);
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/x-icon" href={`${base}favicon.ico`} />
+  <link rel="icon" type="image/png" sizes="32x32" href={`${base}favicon.png`} />
+  <link rel="shortcut icon" href={`${base}favicon.ico`} />
+  <link rel="apple-touch-icon" sizes="180x180" href={`${base}apple-touch-icon.png`} />
 <slot name="head" />
 </head>
 <body>
@@ -37,14 +45,14 @@ const canonicalURL = new URL(canonicalPath, Astro.site);
 
 <footer>
   <div class="footer-logo">
-    <img class="footer-mark" src="/aerovector-mark.png" alt="" width="984" height="499" />
+    <img class="footer-mark" src={`${base}aerovector-mark.png`} alt="" width="984" height="499" />
     <span class="fl-aero">AERO</span><span class="fl-vector">VECTOR</span>
   </div>
   <div class="footer-copy">© 2026 Aero Vector Engineering LLC · DESIGN | CONSULT | OPTIMIZE</div>
   <ul class="footer-links">
-    <li><a href="/services/">Services</a></li>
-    <li><a href="/about/">About</a></li>
-    <li><a href="/contact/">Contact</a></li>
+    <li><a href={`${base}services/`}>Services</a></li>
+    <li><a href={`${base}about/`}>About</a></li>
+    <li><a href={`${base}contact/`}>Contact</a></li>
   </ul>
 </footer>
 
