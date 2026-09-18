@@ -93,7 +93,7 @@ aero-vector-site/
 
 | Item | Status |
 |------|--------|
-| Software license numbers (Catia V5, Vericut, DISSOT Systems) | Placeholder — Trent is still applying for licenses |
+| Software license numbers (Catia V5, Vericut, Dassault Systèmes) | Placeholder — Trent is still applying for licenses |
 | Service page copy | Draft — needs Trent's review/revision |
 | About / bio copy | Draft — needs Trent's review/revision |
 | Contact form submission mechanism | **Not wired up.** Needs a decision: Formspree (like dataforge-site uses) vs. a mailto link. See TODO comment in `src/pages/contact.astro`. |
