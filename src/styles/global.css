@@ -193,6 +193,36 @@ body {
   background-size: 120px 120px;
 }
 
+/* ── SPEC SHEET (bill-of-materials / parts-list row table — replaces card grids) ── */
+.specsheet { border: 1px solid var(--border2); }
+.ss-headrow {
+  display: flex; gap: 28px; padding: 12px 24px;
+  border-bottom: 1px solid var(--border2);
+  font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted2);
+}
+.ss-headrow .ss-h-item { width: 44px; flex-shrink: 0; }
+.ss-headrow .ss-h-name { width: 180px; flex-shrink: 0; }
+.ss-row {
+  display: flex; gap: 28px; padding: 26px 24px;
+  border-bottom: 1px solid var(--border); transition: background 0.2s;
+}
+.ss-row:last-child { border-bottom: none; }
+.ss-row:hover { background: var(--bg3); }
+.ss-item {
+  width: 44px; flex-shrink: 0; padding-top: 3px;
+  font-family: var(--f-mono); font-size: 13px; color: var(--accent2);
+}
+.ss-body { flex: 1; min-width: 0; }
+.ss-name {
+  font-family: var(--f-display); font-weight: 700; font-size: 18px;
+  text-transform: uppercase; letter-spacing: 0.01em; color: var(--text); margin-bottom: 8px;
+}
+.ss-desc { font-size: 13.5px; line-height: 1.65; color: var(--muted); max-width: 640px; margin-bottom: 14px; }
+.ss-spec { display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.03em; color: var(--muted2); }
+.ss-spec span { position: relative; padding-left: 13px; }
+.ss-spec span::before { content: '—'; position: absolute; left: 0; color: var(--border2); }
+
 /* ── CARD GRID (technical sheet divided into panels) ── */
 .services-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
@@ -218,9 +248,10 @@ footer {
   border-top: 1px solid var(--border); padding: 40px 48px;
   display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
 }
-.footer-logo { font-family: var(--f-display); font-weight: 700; font-size: 17px; letter-spacing: 0.05em; }
+.footer-logo { display: flex; align-items: center; gap: 8px; font-family: var(--f-display); font-weight: 700; font-size: 17px; letter-spacing: 0.05em; }
 .footer-logo .fl-aero { color: var(--text); }
 .footer-logo .fl-vector { color: var(--accent); }
+.footer-mark { height: 22px; width: auto; display: block; }
 .footer-copy { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; color: var(--muted2); }
 .footer-links { display: flex; gap: 26px; list-style: none; }
 .footer-links a { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted2); text-decoration: none; transition: color 0.2s; }
@@ -240,4 +271,7 @@ footer {
   .dwg-title { padding: 0 14px; font-size: 22px; }
   .titleblock, .dim-row { flex-wrap: wrap; }
   .tb-cell, .dim-cell { flex: 1 1 50%; }
+  .ss-headrow { display: none; }
+  .ss-row { flex-direction: column; gap: 10px; }
+  .ss-item { width: auto; }
 }

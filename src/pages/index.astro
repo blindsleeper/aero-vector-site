@@ -31,41 +31,40 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
     <div class="hero-right fade-up d3">
-      <svg class="hero-schematic" viewBox="0 0 460 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <!-- part outline: a bracket with a chamfered notch and two mounting holes -->
-        <path d="M70 70 L350 70 L350 170 L260 170 L232 198 L232 390 L70 390 Z"
+      <svg class="hero-schematic" viewBox="0 0 460 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- airfoil/wing profile: cambered section, leading edge left, trailing edge right -->
+        <path d="M50 180 C80 115 150 110 170 120 C260 145 350 165 410 180
+                 C350 195 260 205 170 202 C140 200 90 192 50 180 Z"
               stroke="var(--muted2)" stroke-width="1.25" fill="none"/>
-        <circle cx="300" cy="122" r="13" stroke="var(--muted2)" stroke-width="1.25" fill="none"/>
-        <circle cx="150" cy="335" r="13" stroke="var(--muted2)" stroke-width="1.25" fill="none"/>
-        <line x1="287" y1="122" x2="313" y2="122" stroke="var(--muted2)" stroke-width="1"/>
-        <line x1="300" y1="109" x2="300" y2="135" stroke="var(--muted2)" stroke-width="1"/>
-        <line x1="137" y1="335" x2="163" y2="335" stroke="var(--muted2)" stroke-width="1"/>
-        <line x1="150" y1="322" x2="150" y2="348" stroke="var(--muted2)" stroke-width="1"/>
+        <!-- chord line (leading edge to trailing edge) -->
+        <line x1="50" y1="180" x2="410" y2="180" stroke="var(--muted2)" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
 
-        <!-- top dimension line -->
-        <line x1="70" y1="40" x2="350" y2="40" stroke="var(--accent3)" stroke-width="1"/>
-        <line x1="70" y1="34" x2="70" y2="46" stroke="var(--accent3)" stroke-width="1"/>
-        <line x1="350" y1="34" x2="350" y2="46" stroke="var(--accent3)" stroke-width="1"/>
-        <rect x="180" y="30" width="60" height="18" fill="var(--bg)"/>
-        <text x="210" y="43" text-anchor="middle" fill="var(--accent2)" font-family="IBM Plex Mono, monospace" font-size="11">260.00</text>
+        <!-- chord-length dimension -->
+        <line x1="50" y1="300" x2="410" y2="300" stroke="var(--accent3)" stroke-width="1"/>
+        <line x1="50" y1="294" x2="50" y2="306" stroke="var(--accent3)" stroke-width="1"/>
+        <line x1="410" y1="294" x2="410" y2="306" stroke="var(--accent3)" stroke-width="1"/>
+        <rect x="200" y="290" width="60" height="18" fill="var(--bg)"/>
+        <text x="230" y="303" text-anchor="middle" fill="var(--accent2)" font-family="IBM Plex Mono, monospace" font-size="11">360.00</text>
 
-        <!-- left dimension line -->
-        <line x1="38" y1="70" x2="38" y2="390" stroke="var(--accent3)" stroke-width="1"/>
-        <line x1="32" y1="70" x2="44" y2="70" stroke="var(--accent3)" stroke-width="1"/>
-        <line x1="32" y1="390" x2="44" y2="390" stroke="var(--accent3)" stroke-width="1"/>
-        <rect x="20" y="217" width="36" height="18" fill="var(--bg)"/>
-        <text x="38" y="230" text-anchor="middle" fill="var(--accent2)" font-family="IBM Plex Mono, monospace" font-size="11" transform="rotate(-90 38 230)">320.00</text>
+        <!-- max-thickness dimension -->
+        <line x1="170" y1="120" x2="430" y2="120" stroke="var(--muted2)" stroke-width="1"/>
+        <line x1="170" y1="202" x2="430" y2="202" stroke="var(--muted2)" stroke-width="1"/>
+        <line x1="430" y1="120" x2="430" y2="202" stroke="var(--accent3)" stroke-width="1"/>
+        <line x1="424" y1="120" x2="436" y2="120" stroke="var(--accent3)" stroke-width="1"/>
+        <line x1="424" y1="202" x2="436" y2="202" stroke="var(--accent3)" stroke-width="1"/>
+        <rect x="418" y="152" width="36" height="18" fill="var(--bg)"/>
+        <text x="436" y="165" text-anchor="middle" fill="var(--accent2)" font-family="IBM Plex Mono, monospace" font-size="11" transform="rotate(-90 436 165)">82.00</text>
 
         <!-- leader callouts -->
-        <line x1="313" y1="115" x2="382" y2="78" stroke="var(--muted2)" stroke-width="1"/>
-        <circle cx="382" cy="78" r="2" fill="var(--muted2)"/>
-        <circle cx="404" cy="68" r="13" stroke="var(--accent)" stroke-width="1.25" fill="var(--bg)"/>
-        <text x="404" y="72" text-anchor="middle" fill="var(--accent2)" font-family="IBM Plex Mono, monospace" font-size="11">1</text>
+        <line x1="50" y1="180" x2="30" y2="138" stroke="var(--muted2)" stroke-width="1"/>
+        <circle cx="30" cy="138" r="2" fill="var(--muted2)"/>
+        <circle cx="18" cy="110" r="13" stroke="var(--accent)" stroke-width="1.25" fill="var(--bg)"/>
+        <text x="18" y="114" text-anchor="middle" fill="var(--accent2)" font-family="IBM Plex Mono, monospace" font-size="11">1</text>
 
-        <line x1="163" y1="335" x2="205" y2="360" stroke="var(--muted2)" stroke-width="1"/>
-        <circle cx="205" cy="360" r="2" fill="var(--muted2)"/>
-        <circle cx="228" cy="372" r="13" stroke="var(--accent)" stroke-width="1.25" fill="var(--bg)"/>
-        <text x="228" y="376" text-anchor="middle" fill="var(--accent2)" font-family="IBM Plex Mono, monospace" font-size="11">2</text>
+        <line x1="170" y1="120" x2="210" y2="65" stroke="var(--muted2)" stroke-width="1"/>
+        <circle cx="210" cy="65" r="2" fill="var(--muted2)"/>
+        <circle cx="225" cy="50" r="13" stroke="var(--accent)" stroke-width="1.25" fill="var(--bg)"/>
+        <text x="225" y="54" text-anchor="middle" fill="var(--accent2)" font-family="IBM Plex Mono, monospace" font-size="11">2</text>
       </svg>
     </div>
   </div>
@@ -99,42 +98,43 @@ import Layout from '../layouts/Layout.astro';
       <h2 class="dwg-title">What We Do</h2>
       <div class="dwg-rule"></div>
     </div>
-    <div class="services-grid services-grid--2col">
-      <div class="service-card">
-        <div class="balloon-row">
-          <div class="balloon">01</div>
-          <div class="balloon-leader"></div>
-        </div>
-        <div class="service-name">Design</div>
-        <div class="service-desc">Aerospace-grade CAD modeling and detailed part design in Catia V5 — concept geometry through vendor-ready drawing packages.</div>
-        <div class="service-tags"><span class="tag">Catia V5</span><span class="tag">GD&T</span><span class="tag">Sheet Metal</span></div>
+    <div class="specsheet">
+      <div class="ss-headrow">
+        <span class="ss-h-item">Item</span>
+        <span class="ss-h-name">Designation</span>
+        <span>Description / Spec</span>
       </div>
-      <div class="service-card">
-        <div class="balloon-row">
-          <div class="balloon">02</div>
-          <div class="balloon-leader"></div>
+      <div class="ss-row">
+        <div class="ss-item">01</div>
+        <div class="ss-body">
+          <div class="ss-name">Design</div>
+          <p class="ss-desc">Aerospace-grade CAD modeling and detailed part design in Catia V5 — concept geometry through vendor-ready drawing packages.</p>
+          <div class="ss-spec"><span>Catia V5</span><span>GD&T</span><span>Sheet Metal</span></div>
         </div>
-        <div class="service-name">Manufacturing Engineering</div>
-        <div class="service-desc">CNC program development and toolpath verification in Vericut — catching collisions and overtravel before the spindle ever turns.</div>
-        <div class="service-tags"><span class="tag">Vericut</span><span class="tag">CNC</span><span class="tag">First-Article</span></div>
       </div>
-      <div class="service-card">
-        <div class="balloon-row">
-          <div class="balloon">03</div>
-          <div class="balloon-leader"></div>
+      <div class="ss-row">
+        <div class="ss-item">02</div>
+        <div class="ss-body">
+          <div class="ss-name">Manufacturing Engineering</div>
+          <p class="ss-desc">CNC program development and toolpath verification in Vericut — catching collisions and overtravel before the spindle ever turns.</p>
+          <div class="ss-spec"><span>Vericut</span><span>CNC</span><span>First-Article</span></div>
         </div>
-        <div class="service-name">Consult</div>
-        <div class="service-desc">Independent engineering advisory — design reviews, root-cause investigations, and technical due diligence, without the overhead of a full-time hire.</div>
-        <div class="service-tags"><span class="tag">Design Review</span><span class="tag">Audits</span><span class="tag">Advisory</span></div>
       </div>
-      <div class="service-card">
-        <div class="balloon-row">
-          <div class="balloon">04</div>
-          <div class="balloon-leader"></div>
+      <div class="ss-row">
+        <div class="ss-item">03</div>
+        <div class="ss-body">
+          <div class="ss-name">Consult</div>
+          <p class="ss-desc">Independent engineering advisory — design reviews, root-cause investigations, and technical due diligence, without the overhead of a full-time hire.</p>
+          <div class="ss-spec"><span>Design Review</span><span>Audits</span><span>Advisory</span></div>
         </div>
-        <div class="service-name">Optimize</div>
-        <div class="service-desc">Design-for-manufacturability passes that reduce part count, cycle time, and scrap — tightening the gap between drawing and shop floor.</div>
-        <div class="service-tags"><span class="tag">DFM</span><span class="tag">Tolerance Analysis</span><span class="tag">Cost Reduction</span></div>
+      </div>
+      <div class="ss-row">
+        <div class="ss-item">04</div>
+        <div class="ss-body">
+          <div class="ss-name">Optimize</div>
+          <p class="ss-desc">Design-for-manufacturability passes that reduce part count, cycle time, and scrap — tightening the gap between drawing and shop floor.</p>
+          <div class="ss-spec"><span>DFM</span><span>Tolerance Analysis</span><span>Cost Reduction</span></div>
+        </div>
       </div>
     </div>
     <div style="margin-top:28px;text-align:right;">
@@ -230,8 +230,6 @@ import Layout from '../layouts/Layout.astro';
   .titleblock .tb-cell:first-child { padding-left: 48px; }
   .titleblock .tb-cell:last-child { padding-right: 48px; }
 
-  .services-grid--2col { grid-template-columns: repeat(2, 1fr); }
-
   .cta-wrap { background: var(--bg2); padding: 20px 0; }
   .cta-panel {
     padding: 64px 48px; text-align: center; background: var(--bg);
@@ -251,7 +249,6 @@ import Layout from '../layouts/Layout.astro';
     .titleblock { margin: 0 -24px; }
     .titleblock .tb-cell:first-child { padding-left: 24px; }
     .titleblock .tb-cell:last-child { padding-right: 24px; }
-    .services-grid--2col { grid-template-columns: 1fr; }
     .cta-panel { padding: 48px 24px; }
   }
 </style>

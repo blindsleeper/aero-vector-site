@@ -3,7 +3,10 @@
 ---
 
 <nav id="av-nav-menu" role="navigation">
-  <a href="/" class="nav-logo"><span class="nl-aero">AERO</span><span class="nl-vector">VECTOR</span></a>
+  <a href="/" class="nav-logo">
+    <img class="nav-mark" src="/aerovector-mark.png" alt="" width="984" height="499" />
+    <span class="nl-aero">AERO</span><span class="nl-vector">VECTOR</span>
+  </a>
   <ul class="nav-links">
     <li><a href="/services/">Services</a></li>
     <li><a href="/about/">About</a></li>
@@ -39,10 +42,12 @@ nav {
 nav.scrolled { border-color: var(--border2); }
 
 .nav-logo {
+  display: flex; align-items: center; gap: 10px;
   font-family: 'IBM Plex Sans Condensed', sans-serif;
   font-weight: 700; font-size: 20px; letter-spacing: 0.05em;
   text-decoration: none; flex-shrink: 0;
 }
+.nav-mark { height: 30px; width: auto; display: block; }
 .nl-aero { color: var(--text); }
 .nl-vector { color: var(--accent); }
 
