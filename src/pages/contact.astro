@@ -1,0 +1,455 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// TODO(submission-mechanism): This form is not yet wired to a backend.
+// GitHub Pages serves static files only, so a decision is needed before launch:
+//   1) Form service (e.g. Formspree, like dataforge-site uses) — keeps a real <form action>,
+//      submissions land in an inbox/dashboard. Needs an account + endpoint ID.
+//   2) mailto: link — zero setup, but opens the visitor's mail client and loses layout/validation.
+// Until that decision is made, the form below is visual-only: submission is intercepted
+// client-side and shows an inline "not yet connected" message instead of a silent failure.
+
+const details = [
+  {
+    label: 'Email',
+    value: 'Coming Soon — business email pending domain setup',
+    href:  null,
+  },
+  {
+    label: 'Location',
+    value: 'Remote & On-Site — By Arrangement',
+    href:   null,
+  },
+  {
+    label: 'Response Time',
+    value: 'Within 24 Hours',
+    href:   null,
+  },
+];
+
+const projectTypes = [
+  'Design (Catia V5)',
+  'Manufacturing Engineering (Vericut / CNC)',
+  'Consulting',
+  'Design Optimization',
+  'Systems & Tooling',
+  'Not Sure Yet',
+];
+---
+
+<Layout title="Contact" description="Start a project with Aero Vector Engineering. Tell us about your part, process, or problem and get a reply within 24 hours to schedule a discovery call.">
+
+<!-- DRAFT NOTICE — placeholder copy, pending Trent's review -->
+
+<!-- ── PAGE HERO ── -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-inner">
+    <div class="page-eyebrow fade-up d1">// Start a Project</div>
+    <h1 class="page-headline fade-up d2">
+      Let's Build<br><em>Something.</em>
+    </h1>
+    <p class="page-sub fade-up d3">
+      Tell us what you're working on. The first call is about
+      understanding the problem — not selling you a solution.
+    </p>
+  </div>
+</section>
+
+<!-- ── CONTACT BODY ── -->
+<div style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+
+    <div class="contact-grid">
+
+      <!-- ── LEFT: FORM ── -->
+      <div class="form-col">
+        <div class="form-header">
+          <span class="form-label-top">// Send a Message</span>
+        </div>
+
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="field-label" for="name">Name</label>
+              <input
+                class="field-input"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your name"
+                autocomplete="name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="field-label" for="business">Business Name</label>
+              <input
+                class="field-input"
+                type="text"
+                id="business"
+                name="business"
+                placeholder="Your company or org"
+                autocomplete="organization"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="email">Email</label>
+            <input
+              class="field-input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@company.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="project-type">Project Type</label>
+            <div class="select-wrap">
+              <select class="field-input field-select" id="project-type" name="project_type" required>
+                <option value="" disabled selected>Select a service area…</option>
+                {projectTypes.map((type) => (
+                  <option value={type}>{type}</option>
+                ))}
+              </select>
+              <span class="select-arrow" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="message">
+              Message
+              <span class="field-label-hint">What are you trying to solve?</span>
+            </label>
+            <textarea
+              class="field-input field-textarea"
+              id="message"
+              name="message"
+              placeholder="Describe the part, process, or question. The more context, the better."
+              rows="6"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-footer">
+            <button type="submit" class="btn-primary form-submit">
+              Send Message &nbsp;→
+            </button>
+            <span class="form-note">No spam. No sales calls. Just a real reply.</span>
+          </div>
+
+          <p class="form-status" id="form-status" role="status" hidden>
+            This form isn't connected yet — we're still finalizing how messages get routed.
+            In the meantime, please reach out through the details on the right.
+          </p>
+
+        </form>
+      </div>
+
+      <!-- ── RIGHT: DETAILS ── -->
+      <div class="details-col">
+
+        <div class="details-header">
+          <span class="form-label-top">// Contact Info</span>
+        </div>
+
+        <div class="details-list">
+          {details.map((d) => (
+            <div class="detail-card">
+              <div class="detail-label">{d.label}</div>
+              {d.href
+                ? <a class="detail-value detail-link" href={d.href}>{d.value}</a>
+                : <div class="detail-value">{d.value}</div>
+              }
+            </div>
+          ))}
+        </div>
+
+        <div class="next-steps">
+          <div class="next-steps-label">// What Happens Next</div>
+          <ol class="next-steps-list">
+            <li>
+              <span class="next-num">01</span>
+              <span>You send this form or email directly.</span>
+            </li>
+            <li>
+              <span class="next-num">02</span>
+              <span>We reply within 24 hours with a few targeted questions.</span>
+            </li>
+            <li>
+              <span class="next-num">03</span>
+              <span>A discovery call to assess fit and clarify what we'd need to see.</span>
+            </li>
+            <li>
+              <span class="next-num">04</span>
+              <span>We review your drawings, data, or process documentation.</span>
+            </li>
+            <li>
+              <span class="next-num">05</span>
+              <span>You receive a written proposal with scope, timeline, and price.</span>
+            </li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</Layout>
+
+<script>
+  // TODO(submission-mechanism): remove this interception once a real form
+  // service or mailto endpoint is wired into the <form> above.
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    status?.removeAttribute('hidden');
+  });
+</script>
+
+<style>
+  /* ── PAGE HERO ── */
+  .page-hero {
+    min-height: 44vh;
+    padding-top: var(--nav-h);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%);
+    pointer-events: none;
+  }
+  .page-hero-glow {
+    position: absolute; top: -10%; right: 5%;
+    width: 700px; height: 500px;
+    background: radial-gradient(ellipse, rgba(208,18,31,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .page-hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto;
+    padding: 80px 48px; width: 100%;
+  }
+  .page-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .page-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(64px, 8vw, 100px);
+    line-height: 0.9; letter-spacing: -0.01em;
+    text-transform: uppercase; color: var(--text);
+    margin-bottom: 24px;
+  }
+  .page-headline em { font-style: normal; color: var(--accent); display: block; }
+  .page-sub {
+    font-size: 16px; line-height: 1.7; color: var(--muted);
+    max-width: 440px;
+  }
+
+  /* ── LAYOUT ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* ── FORM COLUMN ── */
+  .form-label-top {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .form-header,
+  .details-header {
+    margin-bottom: 28px;
+  }
+
+  .contact-form {
+    display: flex; flex-direction: column; gap: 24px;
+  }
+  .form-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .form-group {
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .field-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); display: flex; align-items: baseline;
+    justify-content: space-between; gap: 8px;
+  }
+  .field-label-hint {
+    font-size: 9px; letter-spacing: 0.06em;
+    color: var(--muted2); text-transform: none; font-weight: 400;
+  }
+
+  .field-input {
+    width: 100%;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    border-radius: 0;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .field-input::placeholder {
+    color: var(--muted2);
+    font-size: 13px;
+  }
+  .field-input:hover {
+    border-color: var(--border2);
+    background: var(--bg4);
+  }
+  .field-input:focus {
+    border-color: var(--accent3);
+    background: var(--bg4);
+    box-shadow: 0 0 0 3px var(--adim);
+  }
+
+  /* Select */
+  .select-wrap {
+    position: relative;
+  }
+  .field-select {
+    cursor: pointer;
+    padding-right: 40px;
+  }
+  .field-select option {
+    background: var(--bg3);
+    color: var(--text);
+  }
+  .field-select option:disabled {
+    color: var(--muted2);
+  }
+  .select-arrow {
+    position: absolute; right: 14px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted); pointer-events: none;
+    display: flex; align-items: center;
+  }
+
+  /* Textarea */
+  .field-textarea {
+    resize: vertical;
+    min-height: 148px;
+    line-height: 1.65;
+  }
+
+  /* Submit row */
+  .form-footer {
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    padding-top: 4px;
+  }
+  .form-submit {
+    flex-shrink: 0;
+  }
+  .form-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.08em;
+    color: var(--muted2);
+  }
+  .form-status {
+    font-size: 12px; line-height: 1.6; color: var(--accent2);
+    border: 1px solid var(--accent3); background: var(--adim);
+    padding: 12px 16px;
+  }
+
+  /* ── DETAILS COLUMN ── */
+  .details-col {
+    position: sticky; top: calc(var(--nav-h) + 24px);
+  }
+  .details-list {
+    display: flex; flex-direction: column;
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .detail-card {
+    background: var(--bg3);
+    padding: 20px 24px;
+    display: flex; align-items: flex-start; gap: 16px;
+    transition: background 0.2s;
+  }
+  .detail-card:hover { background: var(--bg4); }
+  .detail-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .detail-value {
+    font-size: 13px; color: var(--text); line-height: 1.4;
+  }
+  .detail-link {
+    text-decoration: none;
+    color: var(--text);
+    transition: color 0.2s;
+  }
+  .detail-link:hover { color: var(--accent); }
+
+  /* ── NEXT STEPS ── */
+  .next-steps {
+    border: 1px solid var(--border);
+    padding: 24px;
+  }
+  .next-steps-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .next-steps-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .next-steps-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 12px; color: var(--muted); line-height: 1.5;
+  }
+  .next-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.1em;
+    color: var(--accent); flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 52px; }
+    .details-col { position: static; }
+    .details-list { flex-direction: row; flex-wrap: wrap; background: transparent; border: none; gap: 1px; }
+    .detail-card { flex: 1; min-width: 200px; border: 1px solid var(--border); }
+  }
+  @media (max-width: 900px) {
+    .page-hero-inner { padding: 60px 24px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .details-list { flex-direction: column; }
+    .detail-card { min-width: unset; }
+  }
+</style>

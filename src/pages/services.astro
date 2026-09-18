@@ -1,0 +1,425 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pillars = [
+  {
+    num: '01',
+    name: 'Design',
+    desc: 'Aerospace-grade CAD modeling and detailed part design in Catia V5 — from concept geometry through drawing package, built to survive tolerance stack-up and downstream manufacturing.',
+    deliverables: [
+      '3D part & assembly modeling (Catia V5)',
+      'GD&T-driven detail drawings',
+      'Sheet metal & machined part design',
+      'Fixture & tooling geometry',
+      'Design change & revision control',
+      'Vendor-ready drawing packages',
+    ],
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="16" rx="1"/><path d="M8 21h8M12 19v2"/><path d="M7 8l3 2-3 2M13 12h4"/></svg>`,
+  },
+  {
+    num: '02',
+    name: 'Manufacturing Engineering',
+    desc: 'CNC program development and toolpath verification using Vericut — catching collisions, overtravel, and stock issues in simulation, before a spindle ever turns.',
+    deliverables: [
+      'CNC program review & verification',
+      'Toolpath & G-code simulation (Vericut)',
+      'Machine & control setup validation',
+      'Cycle-time & feed/speed analysis',
+      'Fixture-to-machine collision checks',
+      'First-article support',
+    ],
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8M12 17v4"/><path d="M7 8h2v5H7zM11 6h2v7h-2zM15 10h2v3h-2z"/></svg>`,
+  },
+  {
+    num: '03',
+    name: 'Consult',
+    desc: 'Independent engineering advisory for teams that need a second set of eyes — design reviews, root-cause investigations, and technical due diligence without the overhead of a full-time hire.',
+    deliverables: [
+      'Design & drawing reviews',
+      'Root-cause & failure investigation',
+      'Technical due diligence',
+      'Supplier & process audits',
+      'Engineering documentation cleanup',
+      'Standards & compliance checks',
+    ],
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h13M3 18h8"/><path d="M18 15l3 3-3 3"/><circle cx="19" cy="9" r="2"/><path d="M17 9H9"/></svg>`,
+  },
+  {
+    num: '04',
+    name: 'Optimize',
+    desc: 'Design-for-manufacturability passes that reduce part count, cycle time, and scrap — tightening the gap between what a drawing says and what the shop floor can actually hold.',
+    deliverables: [
+      'DFM / DFA design passes',
+      'Weight & material reduction studies',
+      'Tolerance stack-up analysis',
+      'Cost & cycle-time reduction reviews',
+      'Legacy part re-design',
+      'Process bottleneck identification',
+    ],
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18M7 16l4-4 4 4 4-8"/></svg>`,
+  },
+  {
+    num: '05',
+    name: 'Systems & Tooling',
+    desc: 'Production tooling and systems engineering built on DISSOT Systems — fixture design and shop-floor systems integration for repeatable, audit-ready manufacturing.',
+    deliverables: [
+      'Production tooling design',
+      'Fixture & jig engineering',
+      'Shop-floor systems integration (DISSOT)',
+      'Work instruction development',
+      'Process documentation & SOPs',
+      'Manufacturing readiness reviews',
+    ],
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 3.5-2 6-5 7v2H10v-2c-3-1-5-3.5-5-7a7 7 0 0 1 7-7z"/><path d="M9 17v2a3 3 0 0 0 6 0v-2"/><path d="M9.5 9.5a2.5 2.5 0 0 1 5 0c0 1.5-1 2.5-2.5 3v1"/></svg>`,
+  },
+];
+
+const licenses = [
+  {
+    name: 'Catia V5',
+    role: 'CAD / Product Design',
+    status: 'License pending',
+  },
+  {
+    name: 'Vericut',
+    role: 'CNC Simulation / Verification',
+    status: 'License pending',
+  },
+  {
+    name: 'DISSOT Systems',
+    role: 'Production Tooling / Systems',
+    status: 'License pending',
+  },
+];
+---
+
+<Layout title="Services" description="Aero Vector Engineering offers aerospace design, CNC manufacturing engineering, consulting, and design optimization services — built in Catia V5, Vericut, and DISSOT Systems.">
+
+<!-- DRAFT NOTICE — remove once copy is approved -->
+<!-- All service descriptions on this page are placeholder copy drafted for Trent's review. -->
+
+<!-- ── PAGE HERO ── -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-inner">
+    <div class="page-eyebrow fade-up d1">
+      <span class="eyebrow-num">// Services</span>
+    </div>
+    <h1 class="page-headline fade-up d2">
+      Design.<br><em>Consult. Optimize.</em>
+    </h1>
+    <p class="page-sub fade-up d3">
+      Five disciplines, one aerospace-engineering practice. Every engagement is scoped to
+      your part, your process, or your problem — no generic retainers.
+    </p>
+    <div class="page-hero-meta fade-up d4">
+      <div class="meta-item"><span class="meta-dot"></span>Aerospace Engineering</div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><span class="meta-dot"></span>5 Service Areas</div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><span class="meta-dot"></span>Project &amp; Consulting Engagements</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICE PILLARS ── -->
+<div id="pillars" style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Service<br><em>Pillars</em></h2>
+    </div>
+    <div class="section-rule"></div>
+
+    <div class="pillars-grid">
+      {pillars.map((p) => (
+        <div class="pillar-card">
+          <div class="pillar-top">
+            <div class="service-icon" set:html={p.icon} />
+            <span class="service-num">{p.num}</span>
+          </div>
+          <div class="pillar-name">{p.name}</div>
+          <div class="pillar-desc">{p.desc}</div>
+          <div class="pillar-divider"></div>
+          <div class="pillar-deliverables-label">Deliverables</div>
+          <ul class="pillar-deliverables">
+            {p.deliverables.map((d) => (
+              <li>{d}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<!-- ── SOFTWARE & LICENSING ── -->
+<div id="software" style="background: var(--bg2); border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Software &amp;<br><em>Licensing</em></h2>
+    </div>
+    <div class="section-rule"></div>
+
+    <p class="software-intro">
+      Work is built and verified in industry-standard aerospace tooling. Licensing for the
+      platforms below is in progress — this section will be updated with license numbers
+      once issued.
+    </p>
+
+    <div class="license-grid">
+      {licenses.map((l) => (
+        <div class="license-card">
+          <div class="license-badge-row">
+            <span class="license-status">{l.status}</span>
+          </div>
+          <div class="license-name">{l.name}</div>
+          <div class="license-role">{l.role}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA STRIP ── -->
+<div class="cta-strip">
+  <div class="cta-glow"></div>
+  <div class="cta-eyebrow">// Ready to Build</div>
+  <h2 class="cta-headline">Have a Part.<br><em>Not a Plan?</em></h2>
+  <p class="cta-sub">
+    A free discovery call to understand the problem and assess fit. If it makes sense to
+    move forward, you'll know exactly what the next step looks like.
+  </p>
+  <div class="cta-actions">
+    <a href="/contact/" class="btn-primary">Start a Project</a>
+    <a href="/about/" class="btn-ghost">About Us</a>
+  </div>
+</div>
+
+</Layout>
+
+<style>
+  /* ── PAGE HERO ── */
+  .page-hero {
+    min-height: 52vh;
+    padding-top: var(--nav-h);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%);
+    pointer-events: none;
+  }
+  .page-hero-glow {
+    position: absolute; top: -10%; left: -5%;
+    width: 700px; height: 500px;
+    background: radial-gradient(ellipse, rgba(208,18,31,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .page-hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto;
+    padding: 80px 48px;
+    width: 100%;
+  }
+  .page-eyebrow {
+    margin-bottom: 20px;
+  }
+  .eyebrow-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .page-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(64px, 8vw, 100px);
+    line-height: 0.9; letter-spacing: -0.01em;
+    text-transform: uppercase; color: var(--text);
+    margin-bottom: 28px;
+  }
+  .page-headline em { font-style: normal; color: var(--accent); display: block; }
+  .page-sub {
+    font-size: 16px; line-height: 1.7; color: var(--muted);
+    max-width: 520px; margin-bottom: 40px;
+  }
+  .page-hero-meta {
+    display: flex; align-items: center; gap: 0;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); padding: 0 20px 0 0;
+  }
+  .meta-item:first-child { padding-left: 0; }
+  .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .meta-divider { width: 1px; height: 12px; background: var(--border2); margin-right: 20px; }
+
+  /* ── PILLARS GRID ── */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .pillar-card {
+    grid-column: span 2;
+    background: var(--bg);
+    padding: 40px 36px;
+    position: relative;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .pillar-card:nth-child(4),
+  .pillar-card:nth-child(5) {
+    grid-column: span 3;
+  }
+  .pillar-card:hover { background: var(--bg3); }
+  .pillar-card:hover .service-icon { border-color: var(--adim3); }
+
+  .pillar-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 24px;
+  }
+  .pillar-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 22px;
+    letter-spacing: 0.02em; text-transform: uppercase;
+    color: var(--text); margin-bottom: 10px;
+  }
+  .pillar-desc {
+    font-size: 14px; line-height: 1.7;
+    color: var(--muted); margin-bottom: 28px;
+  }
+  .pillar-divider {
+    width: 100%; height: 1px;
+    background: var(--border); margin-bottom: 20px;
+    position: relative;
+  }
+  .pillar-divider::after {
+    content: ''; position: absolute; left: 0; top: 0;
+    width: 40px; height: 1px; background: var(--accent);
+  }
+  .pillar-deliverables-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+  }
+  .pillar-deliverables {
+    list-style: none; display: flex; flex-direction: column; gap: 7px;
+  }
+  .pillar-deliverables li {
+    font-size: 13px; color: var(--muted); line-height: 1.4;
+    padding-left: 16px; position: relative;
+  }
+  .pillar-deliverables li::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: var(--muted2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+  }
+
+  /* ── SOFTWARE & LICENSING ── */
+  .software-intro {
+    font-size: 15px; line-height: 1.75; color: var(--muted);
+    max-width: 600px; margin-bottom: 48px;
+  }
+  .license-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .license-card {
+    background: var(--bg3);
+    padding: 32px 28px;
+  }
+  .license-badge-row {
+    margin-bottom: 20px;
+  }
+  .license-status {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid var(--accent3);
+    background: var(--adim);
+    color: var(--accent2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .license-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 24px; letter-spacing: 0.02em;
+    text-transform: uppercase; color: var(--text); margin-bottom: 8px;
+  }
+  .license-role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.06em;
+    color: var(--muted2);
+  }
+
+  /* ── CTA STRIP ── */
+  .cta-strip {
+    padding: 100px 48px;
+    text-align: center;
+    position: relative; overflow: hidden;
+    background: var(--bg);
+  }
+  .cta-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 400px;
+    background: radial-gradient(ellipse, rgba(208,18,31,0.07) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+    position: relative; z-index: 1;
+  }
+  .cta-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(48px, 6vw, 80px);
+    line-height: 0.92; text-transform: uppercase;
+    color: var(--text); margin-bottom: 20px;
+    position: relative; z-index: 1;
+  }
+  .cta-headline em { font-style: normal; color: var(--accent); display: block; }
+  .cta-sub {
+    font-size: 15px; color: var(--muted); margin-bottom: 44px;
+    position: relative; z-index: 1; max-width: 460px; margin-inline: auto;
+    line-height: 1.7;
+  }
+  .cta-actions {
+    display: flex; gap: 16px; justify-content: center;
+    align-items: center; flex-wrap: wrap;
+    position: relative; z-index: 1;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .page-hero-inner { padding: 60px 24px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .pillar-card,
+    .pillar-card:nth-child(4),
+    .pillar-card:nth-child(5) { grid-column: span 1; }
+    .license-grid { grid-template-columns: 1fr; }
+    .cta-strip { padding: 80px 24px; }
+    .meta-item { padding: 4px 0; }
+    .meta-divider { display: none; }
+  }
+</style>
