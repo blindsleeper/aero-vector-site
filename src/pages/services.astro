@@ -14,7 +14,6 @@ const pillars = [
       'Design change & revision control',
       'Vendor-ready drawing packages',
     ],
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="16" rx="1"/><path d="M8 21h8M12 19v2"/><path d="M7 8l3 2-3 2M13 12h4"/></svg>`,
   },
   {
     num: '02',
@@ -28,7 +27,6 @@ const pillars = [
       'Fixture-to-machine collision checks',
       'First-article support',
     ],
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8M12 17v4"/><path d="M7 8h2v5H7zM11 6h2v7h-2zM15 10h2v3h-2z"/></svg>`,
   },
   {
     num: '03',
@@ -42,7 +40,6 @@ const pillars = [
       'Engineering documentation cleanup',
       'Standards & compliance checks',
     ],
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h13M3 18h8"/><path d="M18 15l3 3-3 3"/><circle cx="19" cy="9" r="2"/><path d="M17 9H9"/></svg>`,
   },
   {
     num: '04',
@@ -56,7 +53,6 @@ const pillars = [
       'Legacy part re-design',
       'Process bottleneck identification',
     ],
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18M7 16l4-4 4 4 4-8"/></svg>`,
   },
   {
     num: '05',
@@ -70,25 +66,27 @@ const pillars = [
       'Process documentation & SOPs',
       'Manufacturing readiness reviews',
     ],
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 3.5-2 6-5 7v2H10v-2c-3-1-5-3.5-5-7a7 7 0 0 1 7-7z"/><path d="M9 17v2a3 3 0 0 0 6 0v-2"/><path d="M9.5 9.5a2.5 2.5 0 0 1 5 0c0 1.5-1 2.5-2.5 3v1"/></svg>`,
   },
 ];
 
 const licenses = [
   {
+    letter: 'A',
     name: 'Catia V5',
     role: 'CAD / Product Design',
-    status: 'License pending',
+    status: 'Pending',
   },
   {
+    letter: 'B',
     name: 'Vericut',
     role: 'CNC Simulation / Verification',
-    status: 'License pending',
+    status: 'Pending',
   },
   {
+    letter: 'C',
     name: 'DISSOT Systems',
     role: 'Production Tooling / Systems',
-    status: 'License pending',
+    status: 'Pending',
   },
 ];
 ---
@@ -100,12 +98,9 @@ const licenses = [
 
 <!-- ── PAGE HERO ── -->
 <section class="page-hero">
-  <div class="page-hero-grid"></div>
-  <div class="page-hero-glow"></div>
+  <div class="blueprint-grid page-hero-grid" aria-hidden="true"></div>
   <div class="page-hero-inner">
-    <div class="page-eyebrow fade-up d1">
-      <span class="eyebrow-num">// Services</span>
-    </div>
+    <div class="kicker fade-up d1">Services</div>
     <h1 class="page-headline fade-up d2">
       Design.<br><em>Consult. Optimize.</em>
     </h1>
@@ -113,12 +108,10 @@ const licenses = [
       Five disciplines, one aerospace-engineering practice. Every engagement is scoped to
       your part, your process, or your problem — no generic retainers.
     </p>
-    <div class="page-hero-meta fade-up d4">
-      <div class="meta-item"><span class="meta-dot"></span>Aerospace Engineering</div>
-      <div class="meta-divider"></div>
-      <div class="meta-item"><span class="meta-dot"></span>5 Service Areas</div>
-      <div class="meta-divider"></div>
-      <div class="meta-item"><span class="meta-dot"></span>Project &amp; Consulting Engagements</div>
+    <div class="dim-row fade-up d4">
+      <div class="dim-cell"><span class="dim-val">Aerospace</span><span class="dim-label">Engineering</span></div>
+      <div class="dim-cell"><span class="dim-val">05</span><span class="dim-label">Service Areas</span></div>
+      <div class="dim-cell"><span class="dim-val">Project</span><span class="dim-label">&amp; Consulting</span></div>
     </div>
   </div>
 </section>
@@ -126,22 +119,23 @@ const licenses = [
 <!-- ── SERVICE PILLARS ── -->
 <div id="pillars" style="border-bottom: 1px solid var(--border);">
   <div class="section">
-    <div class="section-header">
-      <span class="section-num">01</span>
-      <h2 class="section-title">Service<br><em>Pillars</em></h2>
+    <div class="dwg-header">
+      <div class="dwg-tag">01</div>
+      <div class="dwg-leader"></div>
+      <h2 class="dwg-title">Service Pillars</h2>
+      <div class="dwg-rule"></div>
     </div>
-    <div class="section-rule"></div>
 
     <div class="pillars-grid">
       {pillars.map((p) => (
         <div class="pillar-card">
-          <div class="pillar-top">
-            <div class="service-icon" set:html={p.icon} />
-            <span class="service-num">{p.num}</span>
+          <div class="balloon-row">
+            <div class="balloon">{p.num}</div>
+            <div class="balloon-leader"></div>
           </div>
           <div class="pillar-name">{p.name}</div>
           <div class="pillar-desc">{p.desc}</div>
-          <div class="pillar-divider"></div>
+          <div class="pillar-rule"></div>
           <div class="pillar-deliverables-label">Deliverables</div>
           <ul class="pillar-deliverables">
             {p.deliverables.map((d) => (
@@ -157,11 +151,12 @@ const licenses = [
 <!-- ── SOFTWARE & LICENSING ── -->
 <div id="software" style="background: var(--bg2); border-bottom: 1px solid var(--border);">
   <div class="section">
-    <div class="section-header">
-      <span class="section-num">02</span>
-      <h2 class="section-title">Software &amp;<br><em>Licensing</em></h2>
+    <div class="dwg-header">
+      <div class="dwg-tag">02</div>
+      <div class="dwg-leader"></div>
+      <h2 class="dwg-title">Software &amp; Licensing</h2>
+      <div class="dwg-rule"></div>
     </div>
-    <div class="section-rule"></div>
 
     <p class="software-intro">
       Work is built and verified in industry-standard aerospace tooling. Licensing for the
@@ -172,8 +167,9 @@ const licenses = [
     <div class="license-grid">
       {licenses.map((l) => (
         <div class="license-card">
-          <div class="license-badge-row">
-            <span class="license-status">{l.status}</span>
+          <div class="lic-stamp">Lic. {l.status}</div>
+          <div class="datum-row" style="margin-bottom:18px;">
+            <div class="datum-box">{l.letter}</div>
           </div>
           <div class="license-name">{l.name}</div>
           <div class="license-role">{l.role}</div>
@@ -183,18 +179,25 @@ const licenses = [
   </div>
 </div>
 
-<!-- ── CTA STRIP ── -->
-<div class="cta-strip">
-  <div class="cta-glow"></div>
-  <div class="cta-eyebrow">// Ready to Build</div>
-  <h2 class="cta-headline">Have a Part.<br><em>Not a Plan?</em></h2>
-  <p class="cta-sub">
-    A free discovery call to understand the problem and assess fit. If it makes sense to
-    move forward, you'll know exactly what the next step looks like.
-  </p>
-  <div class="cta-actions">
-    <a href="/contact/" class="btn-primary">Start a Project</a>
-    <a href="/about/" class="btn-ghost">About Us</a>
+<!-- ── CTA ── -->
+<div class="cta-wrap">
+  <div class="section">
+    <div class="cta-panel frame">
+      <span class="corner corner--tl" aria-hidden="true"></span>
+      <span class="corner corner--tr" aria-hidden="true"></span>
+      <span class="corner corner--bl" aria-hidden="true"></span>
+      <span class="corner corner--br" aria-hidden="true"></span>
+      <div class="kicker" style="justify-content:center;margin-bottom:18px;">Ready to Build</div>
+      <h2 class="cta-headline">Have a Part.<br><em>Not a Plan?</em></h2>
+      <p class="cta-sub">
+        A free discovery call to understand the problem and assess fit. If it makes sense to
+        move forward, you'll know exactly what the next step looks like.
+      </p>
+      <div class="cta-actions">
+        <a href="/contact/" class="btn-primary">Start a Project</a>
+        <a href="/about/" class="btn-ghost">About Us</a>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -203,7 +206,7 @@ const licenses = [
 <style>
   /* ── PAGE HERO ── */
   .page-hero {
-    min-height: 52vh;
+    min-height: 46vh;
     padding-top: var(--nav-h);
     display: flex;
     align-items: center;
@@ -212,59 +215,26 @@ const licenses = [
     border-bottom: 1px solid var(--border);
   }
   .page-hero-grid {
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%);
-    pointer-events: none;
-  }
-  .page-hero-glow {
-    position: absolute; top: -10%; left: -5%;
-    width: 700px; height: 500px;
-    background: radial-gradient(ellipse, rgba(208,18,31,0.07) 0%, transparent 65%);
-    pointer-events: none;
+    mask-image: radial-gradient(ellipse 85% 75% at 50% 50%, black 15%, transparent 100%);
   }
   .page-hero-inner {
     position: relative; z-index: 2;
     max-width: 1200px; margin: 0 auto;
-    padding: 80px 48px;
+    padding: 72px 48px;
     width: 100%;
   }
-  .page-eyebrow {
-    margin-bottom: 20px;
-  }
-  .eyebrow-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--accent);
-  }
   .page-headline {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900; font-size: clamp(64px, 8vw, 100px);
-    line-height: 0.9; letter-spacing: -0.01em;
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(40px, 5.5vw, 64px);
+    line-height: 1; letter-spacing: 0.005em;
     text-transform: uppercase; color: var(--text);
-    margin-bottom: 28px;
+    margin: 20px 0 24px;
   }
   .page-headline em { font-style: normal; color: var(--accent); display: block; }
   .page-sub {
-    font-size: 16px; line-height: 1.7; color: var(--muted);
-    max-width: 520px; margin-bottom: 40px;
+    font-size: 15px; line-height: 1.7; color: var(--muted);
+    max-width: 520px; margin-bottom: 36px;
   }
-  .page-hero-meta {
-    display: flex; align-items: center; gap: 0;
-    flex-wrap: wrap;
-  }
-  .meta-item {
-    display: flex; align-items: center; gap: 8px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--muted); padding: 0 20px 0 0;
-  }
-  .meta-item:first-child { padding-left: 0; }
-  .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-  .meta-divider { width: 1px; height: 12px; background: var(--border2); margin-right: 20px; }
 
   /* ── PILLARS GRID ── */
   .pillars-grid {
@@ -277,7 +247,7 @@ const licenses = [
   .pillar-card {
     grid-column: span 2;
     background: var(--bg);
-    padding: 40px 36px;
+    padding: 36px 34px;
     position: relative;
     transition: background 0.3s;
     cursor: default;
@@ -287,35 +257,30 @@ const licenses = [
     grid-column: span 3;
   }
   .pillar-card:hover { background: var(--bg3); }
-  .pillar-card:hover .service-icon { border-color: var(--adim3); }
+  .pillar-card:hover .balloon { border-color: var(--accent); color: var(--accent2); }
+  .pillar-card:hover .balloon-leader,
+  .pillar-card:hover .balloon-leader::after { background: var(--accent); }
 
-  .pillar-top {
-    display: flex; justify-content: space-between; align-items: flex-start;
-    margin-bottom: 24px;
-  }
   .pillar-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700; font-size: 22px;
-    letter-spacing: 0.02em; text-transform: uppercase;
+    font-family: var(--f-display); font-weight: 700; font-size: 20px;
+    letter-spacing: 0.01em; text-transform: uppercase;
     color: var(--text); margin-bottom: 10px;
   }
   .pillar-desc {
     font-size: 14px; line-height: 1.7;
-    color: var(--muted); margin-bottom: 28px;
+    color: var(--muted); margin-bottom: 24px;
   }
-  .pillar-divider {
-    width: 100%; height: 1px;
-    background: var(--border); margin-bottom: 20px;
-    position: relative;
+  .pillar-rule {
+    width: 100%; height: 1px; background: var(--border); margin-bottom: 18px; position: relative;
   }
-  .pillar-divider::after {
-    content: ''; position: absolute; left: 0; top: 0;
-    width: 40px; height: 1px; background: var(--accent);
+  .pillar-rule::before, .pillar-rule::after {
+    content: ''; position: absolute; top: -3px; width: 1px; height: 7px; background: var(--border2);
   }
+  .pillar-rule::before { left: 0; }
+  .pillar-rule::after { right: 0; }
   .pillar-deliverables-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 14px;
+    font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent2); margin-bottom: 14px;
   }
   .pillar-deliverables {
     list-style: none; display: flex; flex-direction: column; gap: 7px;
@@ -328,14 +293,14 @@ const licenses = [
     content: '—';
     position: absolute; left: 0;
     color: var(--muted2);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--f-mono);
     font-size: 10px;
   }
 
   /* ── SOFTWARE & LICENSING ── */
   .software-intro {
     font-size: 15px; line-height: 1.75; color: var(--muted);
-    max-width: 600px; margin-bottom: 48px;
+    max-width: 600px; margin-bottom: 44px;
   }
   .license-grid {
     display: grid;
@@ -346,80 +311,47 @@ const licenses = [
   }
   .license-card {
     background: var(--bg3);
-    padding: 32px 28px;
+    padding: 30px 28px;
+    position: relative;
   }
-  .license-badge-row {
-    margin-bottom: 20px;
-  }
-  .license-status {
-    display: inline-block;
-    padding: 5px 12px;
-    border: 1px solid var(--accent3);
-    background: var(--adim);
+  .lic-stamp {
+    position: absolute; top: 24px; right: 24px;
+    padding: 4px 9px; border: 1px solid var(--accent3);
+    font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--accent2);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
   }
   .license-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700; font-size: 24px; letter-spacing: 0.02em;
+    font-family: var(--f-display); font-weight: 700; font-size: 22px; letter-spacing: 0.01em;
     text-transform: uppercase; color: var(--text); margin-bottom: 8px;
   }
   .license-role {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px; letter-spacing: 0.06em;
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.05em;
     color: var(--muted2);
   }
 
-  /* ── CTA STRIP ── */
-  .cta-strip {
-    padding: 100px 48px;
-    text-align: center;
-    position: relative; overflow: hidden;
-    background: var(--bg);
-  }
-  .cta-glow {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 800px; height: 400px;
-    background: radial-gradient(ellipse, rgba(208,18,31,0.07) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .cta-eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 20px;
-    position: relative; z-index: 1;
-  }
+  /* ── CTA ── */
+  .cta-wrap { background: var(--bg2); padding: 20px 0; }
+  .cta-panel { padding: 64px 48px; text-align: center; background: var(--bg); }
   .cta-headline {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900; font-size: clamp(48px, 6vw, 80px);
-    line-height: 0.92; text-transform: uppercase;
-    color: var(--text); margin-bottom: 20px;
-    position: relative; z-index: 1;
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(34px, 4vw, 50px); line-height: 1; text-transform: uppercase;
+    color: var(--text); margin-bottom: 16px;
   }
   .cta-headline em { font-style: normal; color: var(--accent); display: block; }
   .cta-sub {
-    font-size: 15px; color: var(--muted); margin-bottom: 44px;
-    position: relative; z-index: 1; max-width: 460px; margin-inline: auto;
-    line-height: 1.7;
+    font-size: 15px; color: var(--muted); margin-bottom: 32px;
+    max-width: 460px; margin-inline: auto; line-height: 1.7;
   }
-  .cta-actions {
-    display: flex; gap: 16px; justify-content: center;
-    align-items: center; flex-wrap: wrap;
-    position: relative; z-index: 1;
-  }
+  .cta-actions { display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap; }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    .page-hero-inner { padding: 60px 24px; }
+    .page-hero-inner { padding: 56px 24px; }
     .pillars-grid { grid-template-columns: 1fr; }
     .pillar-card,
     .pillar-card:nth-child(4),
     .pillar-card:nth-child(5) { grid-column: span 1; }
     .license-grid { grid-template-columns: 1fr; }
-    .cta-strip { padding: 80px 24px; }
-    .meta-item { padding: 4px 0; }
-    .meta-divider { display: none; }
+    .cta-panel { padding: 48px 24px; }
   }
 </style>

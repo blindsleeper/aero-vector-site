@@ -43,10 +43,9 @@ const projectTypes = [
 
 <!-- ── PAGE HERO ── -->
 <section class="page-hero">
-  <div class="page-hero-grid"></div>
-  <div class="page-hero-glow"></div>
+  <div class="blueprint-grid page-hero-grid" aria-hidden="true"></div>
   <div class="page-hero-inner">
-    <div class="page-eyebrow fade-up d1">// Start a Project</div>
+    <div class="kicker fade-up d1">Start a Project</div>
     <h1 class="page-headline fade-up d2">
       Let's Build<br><em>Something.</em>
     </h1>
@@ -65,9 +64,7 @@ const projectTypes = [
 
       <!-- ── LEFT: FORM ── -->
       <div class="form-col">
-        <div class="form-header">
-          <span class="form-label-top">// Send a Message</span>
-        </div>
+        <div class="kicker" style="margin-bottom:26px;">Send a Message</div>
 
         <form class="contact-form" id="contact-form" novalidate>
           <div class="form-row">
@@ -157,9 +154,7 @@ const projectTypes = [
       <!-- ── RIGHT: DETAILS ── -->
       <div class="details-col">
 
-        <div class="details-header">
-          <span class="form-label-top">// Contact Info</span>
-        </div>
+        <div class="kicker" style="margin-bottom:26px;">Contact Info</div>
 
         <div class="details-list">
           {details.map((d) => (
@@ -174,7 +169,7 @@ const projectTypes = [
         </div>
 
         <div class="next-steps">
-          <div class="next-steps-label">// What Happens Next</div>
+          <div class="next-steps-label">What Happens Next</div>
           <ol class="next-steps-list">
             <li>
               <span class="next-num">01</span>
@@ -221,47 +216,30 @@ const projectTypes = [
 <style>
   /* ── PAGE HERO ── */
   .page-hero {
-    min-height: 44vh;
+    min-height: 40vh;
     padding-top: var(--nav-h);
     display: flex; align-items: center;
     position: relative; overflow: hidden;
     border-bottom: 1px solid var(--border);
   }
   .page-hero-grid {
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%);
-    pointer-events: none;
-  }
-  .page-hero-glow {
-    position: absolute; top: -10%; right: 5%;
-    width: 700px; height: 500px;
-    background: radial-gradient(ellipse, rgba(208,18,31,0.06) 0%, transparent 65%);
-    pointer-events: none;
+    mask-image: radial-gradient(ellipse 85% 75% at 50% 50%, black 15%, transparent 100%);
   }
   .page-hero-inner {
     position: relative; z-index: 2;
     max-width: 1200px; margin: 0 auto;
-    padding: 80px 48px; width: 100%;
-  }
-  .page-eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 20px;
+    padding: 72px 48px; width: 100%;
   }
   .page-headline {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900; font-size: clamp(64px, 8vw, 100px);
-    line-height: 0.9; letter-spacing: -0.01em;
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(40px, 5.5vw, 64px);
+    line-height: 1; letter-spacing: 0.005em;
     text-transform: uppercase; color: var(--text);
-    margin-bottom: 24px;
+    margin: 20px 0 22px;
   }
   .page-headline em { font-style: normal; color: var(--accent); display: block; }
   .page-sub {
-    font-size: 16px; line-height: 1.7; color: var(--muted);
+    font-size: 15px; line-height: 1.7; color: var(--muted);
     max-width: 440px;
   }
 
@@ -269,23 +247,13 @@ const projectTypes = [
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr 340px;
-    gap: 80px;
+    gap: 72px;
     align-items: start;
   }
 
   /* ── FORM COLUMN ── */
-  .form-label-top {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--accent);
-  }
-  .form-header,
-  .details-header {
-    margin-bottom: 28px;
-  }
-
   .contact-form {
-    display: flex; flex-direction: column; gap: 24px;
+    display: flex; flex-direction: column; gap: 22px;
   }
   .form-row {
     display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
@@ -294,8 +262,7 @@ const projectTypes = [
     display: flex; flex-direction: column; gap: 8px;
   }
   .field-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--muted); display: flex; align-items: baseline;
     justify-content: space-between; gap: 8px;
   }
@@ -309,7 +276,7 @@ const projectTypes = [
     background: var(--bg3);
     border: 1px solid var(--border2);
     color: var(--text);
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--f-body);
     font-size: 14px;
     padding: 12px 16px;
     outline: none;
@@ -370,8 +337,8 @@ const projectTypes = [
     flex-shrink: 0;
   }
   .form-note {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px; letter-spacing: 0.08em;
+    font-family: var(--f-mono);
+    font-size: 9px; letter-spacing: 0.06em;
     color: var(--muted2);
   }
   .form-status {
@@ -392,15 +359,14 @@ const projectTypes = [
   }
   .detail-card {
     background: var(--bg3);
-    padding: 20px 24px;
+    padding: 18px 22px;
     display: flex; align-items: flex-start; gap: 16px;
     transition: background 0.2s;
   }
   .detail-card:hover { background: var(--bg4); }
   .detail-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--accent);
+    font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent2);
   }
   .detail-value {
     font-size: 13px; color: var(--text); line-height: 1.4;
@@ -415,37 +381,35 @@ const projectTypes = [
   /* ── NEXT STEPS ── */
   .next-steps {
     border: 1px solid var(--border);
-    padding: 24px;
+    padding: 22px;
   }
   .next-steps-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 20px;
+    font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent2); margin-bottom: 18px;
   }
   .next-steps-list {
     list-style: none;
-    display: flex; flex-direction: column; gap: 16px;
+    display: flex; flex-direction: column; gap: 15px;
   }
   .next-steps-list li {
     display: flex; align-items: flex-start; gap: 12px;
     font-size: 12px; color: var(--muted); line-height: 1.5;
   }
   .next-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px; letter-spacing: 0.1em;
-    color: var(--accent); flex-shrink: 0;
+    font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.1em;
+    color: var(--accent2); flex-shrink: 0;
     margin-top: 2px;
   }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 1024px) {
-    .contact-grid { grid-template-columns: 1fr; gap: 52px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
     .details-col { position: static; }
     .details-list { flex-direction: row; flex-wrap: wrap; background: transparent; border: none; gap: 1px; }
     .detail-card { flex: 1; min-width: 200px; border: 1px solid var(--border); }
   }
   @media (max-width: 900px) {
-    .page-hero-inner { padding: 60px 24px; }
+    .page-hero-inner { padding: 56px 24px; }
     .form-row { grid-template-columns: 1fr; }
   }
   @media (max-width: 600px) {
